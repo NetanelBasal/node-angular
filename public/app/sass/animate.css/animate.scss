@@ -1,0 +1,16 @@
+$duration: 1s;
+$delay: .2s;
+$function: ease;
+$fill: both;
+$visibility: hidden;
+
+@import "properties";
+@import "bounce";
+@import "fadeIn";
+
+.bounce {
+	@include bounce($duration, $delay, $function, $fill, $visibility);
+}
+.fadeIn {
+  @include fadeIn($duration, $delay, $function, $fill, $visibility);
+}

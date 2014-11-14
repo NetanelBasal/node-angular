@@ -1,0 +1,34 @@
+
+$susy: (
+  columns: 12,
+  gutters: .25,
+  container: 90%,
+  output: isolate,
+  gutter-position: inside
+);
+
+
+a {
+  cursor: pointer;
+}
+
+.error-animation.ng-enter {
+  animation: fadeIn .4s ease-in;
+}
+
+.slide-down.ng-enter {
+  animation: slideDown .2s ease-in;
+}
+
+.modal-content {
+  padding: 1em;
+}
+
+.table > tbody > tr > td {
+  padding:8px;
+}
+
+.table > tbody > tr > td[colspan] {
+  padding: 0;
+  border-top:none;
+}

@@ -1,0 +1,56 @@
+<form name="registerForm" role="form" ng-submit="register()" novalidate>
+  <legend>Register</legend>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="firstName" placeholder="first name" ng-model="user.firstName" required ng-minlength="2">
+  </div>
+
+  <ng-messages for="registerForm.firstName.$error" ng-if="registerForm.$submitted">
+    <ng-message when="required" class="help-block">This field is required</ng-message>
+  </ng-messages>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="lastName" placeholder="last name" ng-model="user.lastName" required>
+  </div>
+
+  <ng-messages for="registerForm.lastName.$error" ng-if="registerForm.$submitted">
+    <ng-message when="required" class="help-block">This field is required</ng-message>
+  </ng-messages>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="email" placeholder="Email" ng-model="user.email" required valid-email>
+  </div>
+
+  <ng-messages for="registerForm.email.$error" ng-if="registerForm.$submitted">
+    <ng-message when="required" class="help-block">This field is required</ng-message>
+    <ng-message when="validEmail" class="help-block">This isnt valid email</ng-message>
+  </ng-messages>
+
+  <div class="form-group">
+    <input type="password" class="form-control" name="password" placeholder="password" ng-model="user.password" required minlength="6" password-chars-validator>
+  </div>
+
+  <ng-messages for="registerForm.password.$error" ng-if="registerForm.$submitted">
+    <ng-message when="required" class="help-block">This field is required</ng-message>
+    <ng-message when="minlength" class="help-block">Must be minimum six chars</ng-message>
+    <ng-message when="passwordCharacters">Your password must contain a number, uppercase and lowercase letters as well as one or more special characters</ng-message>
+  </ng-messages>
+
+  <div class="form-group">
+    <input type="password" field-match="user.password" class="form-control" name="passwordConfirmation" placeholder="password confirmation" ng-model="passwordConfirmation" required minlength="6">
+  </div>
+
+  <ng-messages for="registerForm.passwordConfirmation.$error" ng-if="registerForm.$submitted">
+    <ng-message when="required" class="help-block">This field is required</ng-message>
+    <ng-message when="mismatch" class="help-block">The password dont match</ng-message>
+  </ng-messages>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+<div class="row error-animation" ng-if="error">
+  <div class="alert alert-danger">
+  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  	Something was wrong, please try again later...
+  </div>
+</div>

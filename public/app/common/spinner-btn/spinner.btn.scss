@@ -1,0 +1,12 @@
+@include keyframes(spinner) {
+  from {
+    @include transform(rotate(-360deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+.net-spinner {
+  @include animation(spinner 1.5s linear infinite);
+}
